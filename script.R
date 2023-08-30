@@ -33,7 +33,7 @@ ma.mod <- rma(yi = yi,
 summary(ma.mod)
 
 # get prediction intervals (due to high heterogeneity)
-pimeta::bootPI(dfes$yi, dfes$sei)
+bootPI(dfes$yi, dfes$sei)
 
 # calculate studentized residuals
 rstudent(ma.mod)
@@ -86,7 +86,7 @@ ma.mod1 <- rma(yi = yi,
 
 summary(ma.mod1)
 
-pimeta::bootPI(dfessens$yi, dfessens$sei)
+bootPI(dfessens$yi, dfessens$sei)
 
 forestsens <- viz_forest(x = dfessens[, c("yi", "sei")], 
                      study_labels = dfessens[, "Author"], 
