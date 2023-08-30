@@ -1,5 +1,5 @@
 # set working directory
-setwd("C:/Users/SURHUD/Desktop/Desktop/Stats/Vitamin D and Microvascular Complications Meta-Analysis")
+setwd("your/working/directory")
 
 # load libraries
 library(tidyverse)
@@ -9,7 +9,7 @@ library(pimeta)
 library(metaviz)
 
 # import data
-df <- read.csv("C:/Users/SURHUD/Desktop/Desktop/Stats/Vitamin D and Microvascular Complications Meta-Analysis/data.csv", 
+df <- read.csv("your/working/directory/data.csv", 
                check.names = FALSE)
 attach(df)
 df %>% colnames()
@@ -43,7 +43,7 @@ cooks.distance(ma.mod)
 
 # plot a rainforest plot 
 forest <- viz_forest(x = dfes[, c("yi", "sei")], 
-                    study_labels = dfes[, "Author..Year."], 
+                    study_labels = dfes[, "Author"], 
                     xlab = "Log Odds",
                     variant = "rain",
                     method = "DL",
@@ -89,7 +89,7 @@ summary(ma.mod1)
 pimeta::bootPI(dfessens$yi, dfessens$sei)
 
 forestsens <- viz_forest(x = dfessens[, c("yi", "sei")], 
-                     study_labels = dfessens[, "Author..Year."], 
+                     study_labels = dfessens[, "Author"], 
                      xlab = "Log Odds",
                      variant = "rain",
                      method = "DL",
